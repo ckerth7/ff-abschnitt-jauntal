@@ -60,16 +60,26 @@ table {
     margin: 5px;
 }
 
+p.block {
+  text-align: justify;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
 #logo:hover {
   cursor: pointer;
 }
 
 h1 {
-  margin: 20px;
+  font-size: 22px;
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 20px;
+}
+
+h2.subtitle {
+  color: red;
 }
 
 /* start from web */

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
     <title>AFKDO Jauntal</title>
 </head>
 
@@ -17,32 +19,16 @@
 
             <div id="header" class="sticky">
                 <img src="logo2.png" onclick="topFunction()" id="logo">
-                <a href="index.html#section_news"><i class="fa fa-info-circle fa-3x nav-element"></i></a>
-                <a href="index.html#section_contact"><i class="fa fa-group fa-3x nav-element"></i></a>
-                <a href="index.html#section_location"><i class="fa fa-map-marker fa-3x nav-element"></i></a>
+                <a href="index.html#section_news" class="nav-element"><i class="fa fa-info-circle fa-3x"></i></a>
+                <a href="index.html#section_contact" class="nav-element"><i class="fa fa-group fa-3x"></i></a>
+                <a href="index.html#section_location" class="nav-element"><i class="fa fa-map-marker fa-3x"></i></a>
             </div>
 
             <div class="wrapper-row">
 
                 <div id="section_news" class="shape-news">
                     <h1>Aktuelles</h1>
-                    <div class="card">
-                        <article>
-                            <h2 class="subtitle">02.03.2010 - Einsatz in XYZ</h2>
-                            <p class="block">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
-
-                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
-                                
-                                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
-                            </p>
-                        </article>
-                        <article>
-                            <h2 class="subtitle">01.07.2009 - Hilfeleistung in ABC</h2>
-                            <p class="block">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                            </p>
-                        </article>
+                    <div class="card" id="article-container">
                     </div>
                 </div>
 
@@ -62,6 +48,7 @@
                             <a href="#"><i class="fa fa-facebook"></i></a>
                         </div>
                         <div class="card-small">
+                            <h2 class="subtitle">Aufgaben & Funktionen</h2>
                             <p class="block">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
                                 eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
                                 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea

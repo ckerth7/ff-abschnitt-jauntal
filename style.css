@@ -85,10 +85,11 @@ h2.subtitle {
 /* start from web */
 
 #header {
+  
     background-image: linear-gradient(to right, black , gray);
-    background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(128,128,128,0.7) 80%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(128,128,128,0.7) 80%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(128,128,128,0.7) 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(128, 128, 128, 0.7) 90%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(128, 128, 128, 0.7) 90%); 
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(128, 128, 128, 0.7) 90%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     height: 140px;
     display: flex;
@@ -124,10 +125,6 @@ div.sticky {
     text-align: center;
     text-decoration: none;
     margin: 5px 2px;
-  }
-
-  .nav-element {
-    visibility: hidden;
   }
   
   .fa:hover {
@@ -181,7 +178,6 @@ html {
 .container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 
 .container-links {
@@ -191,6 +187,13 @@ html {
   justify-content: space-between;
 }
 
+
+/* 
+.nav-element {
+  display: none;
+} 
+*/
+
 /* On screens that are 1500px or less, set flex direction to column */
 @media screen and (max-width: 1500px) {
   .container-links {
@@ -199,7 +202,7 @@ html {
   }
 
   .nav-element {
-    visibility: visible;
+    display: block;
   }
 
 }
@@ -208,6 +211,10 @@ html {
 @media screen and (max-width: 500px) {
   .shape-news {
     margin-right: 10px;
+  }
+
+  .container {
+    flex-direction: column;
   }
 
   #header {
@@ -278,7 +285,6 @@ html {
   border-radius: 20px;
   border: 3px solid black;
   opacity: .9;
-  flex-grow: 7;
 }
 
 .card {
@@ -300,7 +306,6 @@ html {
   text-align: center;
   padding: 10px;
   margin: 5px;
-  flex-grow: 1;
   /* min-height: 499px; */
 }
 
@@ -328,7 +333,7 @@ html {
 }
 
 i:hover, a.link_white:hover, a.link:hover {
-  color: #C33764;
+  color: red;
 }
 
 div.card-link:hover {

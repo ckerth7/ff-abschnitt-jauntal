@@ -176,6 +176,16 @@ html {
   align-items: center;
 }
 
+#image-grid {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-grid-item {
+  border: solid;
+  margin: 5px;
+}
+
 /* On screens that are 1500px or less, set flex direction to column */
 @media screen and (max-width: 1500px) {
   .container-links {
@@ -217,6 +227,11 @@ html {
 
   #header .icon {
     display: block;
+}
+
+#image-grid {
+  display: flex;
+  flex-direction: column;
 }
 
 }

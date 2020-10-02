@@ -53,11 +53,9 @@ table {
 /* CSS RESET Ende */
 
 #logo {
-    display: block;
-    float: left;
-    max-height: 100px;
-    max-width: 300px;
-    margin: 5px;
+    height: 75px;
+    width: 250px;
+    margin: 10px;
 }
 
 p.block {
@@ -82,40 +80,28 @@ h2.subtitle {
   color: red;
 }
 
-/* start from web */
-
 #header {
-  
     background-image: linear-gradient(to right, black , gray);
     background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(128, 128, 128, 0.7) 90%);
     background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(128, 128, 128, 0.7) 90%); 
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(128, 128, 128, 0.7) 90%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    height: 140px;
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-div.sticky {
-    /* position: -webkit-sticky; */
+    /* position: -webkit-sticky; /* Safari */
     /* position: sticky; */
     top: 0;
     z-index: 999;
-  }
+}
 
 #header a {
     color: white;
 }
 
-.mySlides {
-    max-width: 320px;
-    max-height: 320px;
-    min-height: 320px;
-    min-width: 320px;
+#header .icon {
+  display: none;
 }
-
-/* end from web */
 
 /* start social media links */ 
 .fa {
@@ -138,8 +124,6 @@ div.sticky {
 
 /* end social media links */ 
 
-/* css for footer and its fixation at the bottom of the page */ 
-
 .fixed-footer {
   display: flex;
   flex-direction: column;
@@ -155,8 +139,6 @@ div.sticky {
   margin: 0;
 }
 
-/* end footer css */
-
 body {
   background: #C33764;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
@@ -170,8 +152,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* flex containers */
-
 .container {
   display: flex;
   flex-direction: row;
@@ -184,22 +164,23 @@ html {
   justify-content: space-between;
 }
 
-
-/* 
-.nav-element {
+.mobile-bar {
   display: none;
-} 
-*/
+}
+
+.responsive-bar {
+  display: block;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /* On screens that are 1500px or less, set flex direction to column */
 @media screen and (max-width: 1500px) {
   .container-links {
     display: flex;
     flex-direction: column;
-  }
-
-  .nav-element {
-    display: block;
   }
 
 }
@@ -215,10 +196,11 @@ html {
   }
 
   #header {
-    height: 400px;
+    height: 460px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
   }
 
   #news {
@@ -228,6 +210,14 @@ html {
   #footer {
     position: unset;
   }
+
+  .nav-element {
+    display: none;
+  }
+
+  #header .icon {
+    display: block;
+}
 
 }
 
@@ -303,7 +293,6 @@ html {
   text-align: center;
   padding: 10px;
   margin: 5px;
-  /* min-height: 499px; */
 }
 
   .card-small {

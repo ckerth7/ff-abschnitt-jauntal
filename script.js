@@ -36,3 +36,18 @@ function addArticle(article) {
         tag.appendChild(p);
         s.appendChild(tag);
 }
+
+// Switches the horizontal menu to the vertical one and vice versa.
+function toggleNavbar() {
+    var x = document.getElementsByClassName("mobile-bar");
+    var y = document.getElementsByClassName("responsive-bar");
+    if (x !== null && x.length === 1) {
+        var menu = x[0];
+        menu.className = "responsive-bar";
+    } 
+    else  
+    {
+        var menu = y[0];
+        menu.className = "mobile-bar";
+    }
+  }

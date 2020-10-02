@@ -141,21 +141,18 @@ div.sticky {
 /* css for footer and its fixation at the bottom of the page */ 
 
 .fixed-footer {
-  position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 60px;    /* Footer height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 #footer {
   height: 60px;
-  bottom: 0;
-  position: fixed;
   text-decoration: none;
   color: black;
   width: 100%;
+  margin: 0;
 }
 
 /* end footer css */

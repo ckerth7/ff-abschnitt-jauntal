@@ -179,6 +179,7 @@ html {
 #image-grid {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .image-grid-item {
@@ -191,6 +192,12 @@ html {
   .container-links {
     display: flex;
     flex-direction: column;
+  }
+
+  #image-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 
 }
@@ -227,12 +234,13 @@ html {
 
   #header .icon {
     display: block;
-}
+  }
 
-#image-grid {
-  display: flex;
-  flex-direction: column;
-}
+  #image-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 
 }
 

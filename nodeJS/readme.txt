@@ -6,5 +6,5 @@ How to use the app:
 1. Download and install node.js
 2. Open "node.js command promt" from the start menu
 2. Wait until the promt opens and enter "npm install sharp"
-3. Open the cmd in the same directory "app.js" is located
-4. Issue "node app.js" command
+3. Open the cmd in the same directory "make_image.js" is located
+4. Issue "node make_image.js" command

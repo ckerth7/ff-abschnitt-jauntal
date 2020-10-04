@@ -25,33 +25,22 @@ readline.question('Enter path to image folder [e.g. C://Users/abc/Desktop/3]:', 
         var invalidType = false;
         for (var i = 0; i < image_files.length; i++) {
             var image = image_files[i];
-            if (!image.endsWith(".jpg")) {
+            if (!image.endsWith(".jpg") && !image.endsWith(".jpeg")) {
                 invalidType = true;
                 break;
             }
         }
 
         if (invalidType) {
-            console.log("Folder must contain *.jpg files only. Please remove any other file.");
+            console.log("Folder must contain files of type *.jpg or *.jpeg only. Please remove any other file.");
         }
         else {
-
             console.log("Checking images successful.");
 
-            console.log("Renaming images ...");
-            var images = [];
+            console.log("Resizing images ...");
             for (var i = 0; i < image_files.length; i++) {
                 var image = image_files[i];
-                var oldName = path + '/' + image;
-                var newName = path + '/' + (i + 1) + '.jpg';
-                fs.renameSync(oldName, newName);
-                images.push(newName);
-            }
-            console.log("Renaming images successful.");
-
-            console.log("Resizing images ...");
-            for (var i = 0; i < images.length; i++) {
-                var inputFile = images[i];
+                var inputFile = path + '/' + image;
                 for (var j = 0; j < output_sizes.length; j++) {
                     var s = output_sizes[j];
                     var outputFile = path + '/' + (i + 1) + '-' + s + 'w.jpg';

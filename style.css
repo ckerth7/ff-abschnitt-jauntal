@@ -68,12 +68,46 @@ p.block {
   cursor: pointer;
 }
 
+#footer {
+  height: 60px;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.fb {
+  background: #4661b0;
+  color: white;
+  width: 75px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: Arial;
+  display: table-cell;
+}
+
+.fb:hover {
+  color: red;
+  background: #6276b3;
+}
+
+#footer a {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
 h1 {
-  font-size: 22px;
+  font-size: 30px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 28px;
 }
 
 h2.subtitle {
@@ -131,21 +165,13 @@ h2.subtitle {
   height: 100vh;
 }
 
-#footer {
-  height: 60px;
-  text-decoration: none;
-  color: black;
-  width: 100%;
-  margin: 0;
-}
-
 body {
   background: #C33764;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0;
-  font-family: 'Aldrich';
-  font-size: 18px;
+  font-family: 'Palatino';
+  font-size: 24px;
 }
 
 html {
@@ -328,7 +354,7 @@ html {
   
   .title {
     color: black;
-    font-size: 18px;
+    font-size: 24px;
   }
 
 .nimg {
@@ -352,17 +378,11 @@ div.card-link:hover {
 .link {
     text-decoration: none;
     color: black;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .link_white {
   text-decoration: none;
   color: white;
-  font-size: 18px;
-}
-
-.add_bar::after {
-  content: ' |';
-  color: white;
-  font-size: 18px;
+  font-size: 24px;
 }

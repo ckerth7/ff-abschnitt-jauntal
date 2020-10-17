@@ -10,23 +10,25 @@ const show_article_images = true;
 
 // Articles ordered from the most to the least current one.
 const articles = [
-    { 
-        title: "02.03.2010 - Einsatz in XYZ",
-        imagesDirectory: "articles/1/",
-        images: 7,
+    {
+        title: "Einsatz",
         content: "Lorem äpsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"
     },
-    { 
-        title: "01.07.2009 - Hilfeleistung in ABC", 
-        imagesDirectory: "articles/2/", 
-        images: 4, 
+    {
+        date: "01.07.2009",
+        place: "Abtei",
+        title: "Hilfeleistung",
+        imagesDirectory: "articles/2/",
+        images: 4,
         content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
     }
-    , 
-    { 
-        title: "01.07.2006 - Hilfeleistung in ABC", 
-        imagesDirectory: "articles/3/", 
-        images: 2, 
+    ,
+    {
+        date: "02.03.2006",
+        place: "Gallizien",
+        title: "Hilfeleistung",
+        imagesDirectory: "articles/3/",
+        images: 2,
         content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
     }
 ];
@@ -46,27 +48,71 @@ window.onload = (event) => {
     }
 };
 
+// Returns true if the given string is defined and not empty.
+function hasValue(value) {
+    var result = typeof value !== 'undefined' && value !== null && value.length > 0;
+    return result;
+}
+
 // Creates a DOM structure based upon the given article and adds it to the article-container div.
 function addArticle(article) {
     let article_container = document.getElementById("article-container");
     var single_article = document.createElement("article");
+    // title
     var title = document.createElement("h2");
     title.classList.add("subtitle");
-    title.appendChild(document.createTextNode(article.title));
-    var content = document.createElement("p");
-    content.classList.add("block");
-    content.appendChild(document.createTextNode(article.content));
+    if (hasValue(article.title)) {
+        title.appendChild(document.createTextNode(article.title));
+    } else {
+        title.appendChild(document.createTextNode('Achtung Titel fehlt!'));
+    }
     single_article.appendChild(title);
+
+    // date and place
+    if (hasValue(article.date)) {
+        var date = document.createElement("h3");
+        date.classList.add("subtitle");
+        date.appendChild(document.createTextNode('am ' + article.date));
+        single_article.appendChild(date);
+    }
+    if (hasValue(article.place)) {
+        var place = document.createElement("h3");
+        place.classList.add("subtitle");
+        place.appendChild(document.createTextNode('in ' + article.place));
+        single_article.appendChild(place);
+    }
+
+    // images
     if (show_article_images) {
         var image_grid = createImageGrid(article);
-        single_article.appendChild(image_grid);
+        if (image_grid !== null) {
+            single_article.appendChild(image_grid);
+        }
     }
+
+    // content
+    var content = document.createElement("p");
+    content.classList.add("block");
+    if (hasValue(article.content)) {
+        content.appendChild(document.createTextNode(article.content));
+    } else {
+        content.appendChild(document.createTextNode('Achtung Inhalt fehlt!'));
+    }
+
     single_article.appendChild(content);
     article_container.appendChild(single_article);
 }
 
-// Creates a flexible grid containing the images of the article.
+// Creates a flexible grid containing the images of the article. Returns the grid or null if it could not be created.
 function createImageGrid(article) {
+
+    if (!hasValue(article.imagesDirectory)) {
+        return null;
+    }
+    if (typeof article.images === 'undefined' || article.images === null) {
+        return null;
+    }
+
     // create flex container for images
     var image_grid = document.createElement("div");
     image_grid.classList.add("image-grid");
@@ -81,9 +127,9 @@ function createImageGrid(article) {
         var img = document.createElement("img");
         img.classList.add("image-grid-item");
 
-        var srcset = directory_of_article + i + "-220w.jpg 220w, " + 
-                     directory_of_article + i + "-320w.jpg 320w, " + 
-                     directory_of_article + i + "-640w.jpg 640w";
+        var srcset = directory_of_article + i + "-220w.jpg 220w, " +
+            directory_of_article + i + "-320w.jpg 320w, " +
+            directory_of_article + i + "-640w.jpg 640w";
         var sizes = "(max-width: 1000px) 220px, (max-width: 1500px) 320px, 640px";
 
         img.srcset = srcset;

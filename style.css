@@ -69,20 +69,20 @@ p.block {
 }
 
 #footer {
-  height: 60px;
   width: 100%;
   text-decoration: none;
-  color: black;
+  background: black;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: baseline;
 }
 
-.fb {
+.fb-logo {
   background: #4661b0;
   color: white;
-  width: 75px;
+  width: 60px;
   height: 50px;
   text-align: center;
   vertical-align: middle;
@@ -92,7 +92,26 @@ p.block {
   display: table-cell;
 }
 
-.fb:hover {
+.fb {
+  background: #4661b0;
+  color: white;
+  width: 60px;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: Arial;
+  display: table-cell;
+}
+
+.fb::before, .fb-logo::before {
+  content: 'f';
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fb:hover, .fb-logo:hover {
   color: red;
   background: #6276b3;
 }
@@ -105,9 +124,18 @@ p.block {
 .ia {
   text-decoration: none;
   color: white;
-  margin-right: 20px;
   margin-bottom: 10px;
-  text-shadow: 0px -1px 4px white, 0px -2px 10px rgb(240, 105, 240), 0px -10px 20px rgb(223, 6, 223), 0px -18px 40px rgb(148, 4, 148);
+  padding: 10px;
+  width: 120px;
+  min-width: 120px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 20px;
+}
+
+.ia:hover {
+  border-color: red;
+  color: red;
 }
 
 h1 {
@@ -118,15 +146,23 @@ h2 {
   font-size: 28px;
 }
 
+h3 {
+  font-size: 20px;
+  color: red;
+}
+
 h2.subtitle {
   color: red;
 }
 
 #header {
+    /*
     background-image: linear-gradient(to right, black , gray);
     background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(128, 128, 128, 0.7) 90%);
     background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(128, 128, 128, 0.7) 90%); 
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(128, 128, 128, 0.7) 90%);
+    */
+    background: black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: row;
@@ -178,8 +214,8 @@ body {
   background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0;
-  font-family: 'Palatino';
-  font-size: 24px;
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 22px;
 }
 
 html {
@@ -247,7 +283,7 @@ html {
   }
 
   #header {
-    height: 260px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -259,7 +295,14 @@ html {
   }
 
   #footer {
-    position: unset;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .fb {
+    height: 50px;
+    width: 100%;
   }
 
   .nav-element {
@@ -381,7 +424,12 @@ html {
     max-height: 300px;
 }
 
-i:hover, a.link_white:hover, a.link:hover {
+.link_white:hover {
+  border-color: red;
+  color: red;
+}
+
+i:hover, a.link:hover {
   color: red;
 }
 
@@ -392,11 +440,16 @@ div.card-link:hover {
 .link {
     text-decoration: none;
     color: black;
-    font-size: 24px;
 }
 
 .link_white {
   text-decoration: none;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
+  padding: 10px;
+  width: 120px;
+  min-width: 120px;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 20px;
 }

@@ -3,7 +3,7 @@
 // ******************************************
 
 // Number of articles that should be visible, i.e., articles above that value are archived
-const number_of_articles = 2;
+const number_of_articles = 1;
 
 // Currently, images are not displayed due to missing loading handlers and scaling
 const show_article_images = true;
@@ -11,8 +11,8 @@ const show_article_images = true;
 // Articles ordered from the most to the least current one.
 const articles = [
     {
-        title: "Einsatz",
-        content: "Lorem äpsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse"
+        title: "WILLKOMMEN!",
+        content: "Liebe Besucherinnen und Besucher, wir – das Feuerwehrkommando des Abschnittes Jauntal – heißen Sie herzlich auf unserer Homepage willkommen! Schauen Sie sich gerne um. Es gibt einiges zu entdecken. In naher Zukunft finden Sie hier Informationen zu Einsätzen, Veranstaltungen und verschiedenen Themen rund um das Feuerwehrwesen. Schauen Sie also gerne immer wieder hier vorbei. Viel Spaß beim Stöbern! Ihre Feuerwehr :)"
     },
     {
         date: "01.07.2009",

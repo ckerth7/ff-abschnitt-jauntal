@@ -52,6 +52,65 @@ table {
 
 /* CSS RESET Ende */
 
+/* Animations start */
+
+.text-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align:center;  
+  color: white;
+}
+
+.heading-primary {
+    color: white;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+   /*  Animation decalaration   */
+    animation-name: moveInleft;
+    animation-duration: 3s;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 15.9px;
+  
+    animation-name: moveInRight;
+    animation-duration: 3s;
+}
+
+@keyframes moveInleft {
+    0% {
+        margin-left: -100%;
+    }
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@keyframes moveInRight {
+  0% {
+      margin-right: -100%;
+  }
+  100% {
+    margin-right: 0%;
+  }
+}
+
+/* Animations end */
+
+div#main {
+  display: flex;
+  direction: column;
+}
+
 #logo {
     height: 75px;
     width: 250px;
@@ -126,7 +185,6 @@ p.block {
   color: white;
   margin-bottom: 10px;
   padding: 10px;
-  width: 120px;
   min-width: 120px;
   text-align: center;
   border: 2px solid transparent;
@@ -153,6 +211,10 @@ h3 {
 
 h2.subtitle {
   color: red;
+}
+
+p.subtitle {
+  font-size: 16px;
 }
 
 #header {
@@ -215,7 +277,7 @@ body {
   background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin: 0;
   font-family: Verdana, Tahoma, sans-serif;
-  font-size: 22px;
+  font-size: 18px;
 }
 
 html {
@@ -268,6 +330,18 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+  }
+
+  .heading-primary-main {
+    display: block;
+    font-size: 30px;
+    letter-spacing: 20px;
+  }
+
+  .heading-primary-sub {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 10px;
   }
 
 }
@@ -325,6 +399,17 @@ html {
     justify-content: space-around;
   }
 
+  .heading-primary-main {
+    display: block;
+    font-size: 20px;
+  }
+
+  .heading-primary-sub {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+  }
+
 }
 
 .wrapper-row {
@@ -332,6 +417,11 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 5px;
+}
+
+.wrapper-column {
+  display: flex;
+  flex-direction: column;
 }
 
 /* shapes within flex containers */
@@ -411,7 +501,7 @@ html {
   
   .title {
     color: black;
-    font-size: 24px;
+    font-size: 16px;
   }
 
 .nimg {

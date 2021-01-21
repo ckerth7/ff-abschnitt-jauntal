@@ -113,7 +113,7 @@ div#main {
 
 #logo {
     height: 75px;
-    width: 250px;
+	width: 250px;
     margin: 10px;
 }
 
@@ -284,6 +284,15 @@ html {
     scroll-behavior: smooth;
 }
 
+div#team_members {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.team_member {
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -365,7 +374,7 @@ html {
   }
 
   #news {
-    width: 250px;
+	 width: 250px;
   }
 
   #footer {

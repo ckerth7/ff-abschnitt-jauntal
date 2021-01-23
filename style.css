@@ -198,6 +198,8 @@ p.block {
 
 h1 {
   font-size: 30px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 h2 {
@@ -291,6 +293,15 @@ div#team_members {
 }
 
 .team_member {
+	width: 355px;
+}
+
+.title_team_member {
+	font-weight: bold;
+}
+
+.title_team_function {
+	font-size: 18px;
 }
 
 .container {
@@ -363,6 +374,10 @@ div#team_members {
 
   .container {
     flex-direction: column;
+  }
+  
+  .title_team_function {
+	font-size: 14px;
   }
 
   #header {
@@ -515,6 +530,27 @@ div#team_members {
 
 .nimg {
     border: 2px solid black;
+    width: 170px;
+    height: 200px;
+    min-width: 150px;
+    min-height: 200px;
+    max-width: 150px;
+    max-height: 300px;
+}
+.nimg_oval {
+    border: 1px solid gray;
+	border-radius: 50%;
+    width: 170px;
+    height: 200px;
+    min-width: 150px;
+    min-height: 200px;
+    max-width: 150px;
+    max-height: 300px;
+}
+
+.nimg_oval_silhouette {
+    border: 2px solid black;
+	border-radius: 50%;
     width: 170px;
     height: 200px;
     min-width: 150px;

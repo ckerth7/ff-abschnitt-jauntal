@@ -286,6 +286,11 @@ html {
     scroll-behavior: smooth;
 }
 
+
+p {
+	word-break: break-word; /* This prevents long text from breaking the responsive layout */
+}
+
 div#team_members {
 	display: flex;
 	flex-wrap: wrap;

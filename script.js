@@ -2,50 +2,74 @@
 // Script parameters
 // ******************************************
 
-// Number of articles that should be visible, i.e., articles above that value are archived
-const number_of_articles = 1;
+let baseUrl = 'https://www.feuerwehr-abschnitt-jauntal.at/articles/';
+
+// Number of articles that exist in total on the server
+var number_of_articles = 1;
+// Number of articles that should be shown on the website
+var number_of_visible_articles = 0;
+// Number of articles that have already been loaded from the server 
+var number_of_loaded_articles = 0;
 
 // Currently, images are not displayed due to missing loading handlers and scaling
-const show_article_images = true;
+const show_article_images = false;
 
-// Articles ordered from the most to the least current one.
-const articles = [
-    {
-        title: "WILLKOMMEN!",
-        content: "Liebe Besucherinnen und Besucher, wir – das Feuerwehrkommando des Abschnittes Jauntal – heißen Sie herzlich auf unserer Homepage willkommen! Schauen Sie sich gerne um. Es gibt einiges zu entdecken. In naher Zukunft finden Sie hier Informationen zu Einsätzen, Veranstaltungen und verschiedenen Themen rund um das Feuerwehrwesen. Schauen Sie also gerne immer wieder hier vorbei. Viel Spaß beim Stöbern! Ihre Feuerwehr :)"
-    },
-    {
-        date: "01.07.2009",
-        place: "Abtei",
-        title: "Hilfeleistung",
-        imagesDirectory: "articles/2/",
-        images: 4,
-        content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-    }
-    ,
-    {
-        date: "02.03.2006",
-        place: "Gallizien",
-        title: "Hilfeleistung",
-        imagesDirectory: "articles/3/",
-        images: 2,
-        content: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam"
-    }
-];
+// Articles being initialized using asynchronous requests 
+var articles = [];
 
 // ******************************************
 // Code
 // ******************************************
 
-// For debuging purposes only
-if (number_of_articles > articles.length) {
-    alert("Adjust number_of_articles");
+// Dynamic content loading start 
+
+function loadContent() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var a = JSON.parse(this.responseText);
+	  number_of_articles = a.NumberOfArticles; 
+	  number_of_visible_articles = a.NumberOfVisibleArcticles;
+	  loadArticles();
+    }
+  };
+  xhttp.open("GET", baseUrl + 'settings.json', true);
+  xhttp.send();
 }
 
-window.onload = (event) => {
-    for (var i = 0; i < number_of_articles; i++) {
+function loadArticles() {
+	loadArticle(number_of_articles);
+}
+
+function loadArticle(id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var article = JSON.parse(this.responseText);
+	  articles.push(article);
+	  number_of_loaded_articles++;
+	  if (number_of_loaded_articles < number_of_visible_articles) {
+		number_of_articles--;
+		loadArticle(number_of_articles);
+	  } else {
+	    visualizeArticles();
+	  }
+    }
+  };
+  xhttp.open("GET", baseUrl + id + '/' + id + '.json', true);
+  xhttp.send();
+}
+
+function visualizeArticles() {
+	for (var i = 0; i < articles.length; i++) {
         addArticle(articles[i]);
     }
+}
+
+// Dynamic content loading end 
+
+window.onload = (event) => {
+	loadContent();
 };
 
 // Returns true if the given string is defined and not empty.

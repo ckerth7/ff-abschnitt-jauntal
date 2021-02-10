@@ -1,0 +1,19 @@
+
+User-agent: *
+Allow: /
+
+# Disallowed Web Pages
+Disallow: /impressum.html
+Disallow: /team.html
+
+# Disallowed Sub-Directories
+Disallow: /articles/
+Disallow: /images/
+Disallow: /rank/
+
+# Disallowed File Types
+Disallow: /*.pdf$
+Disallow: /*.docx$
+Disallow: /*.odt$
+Disallow: /*.php$
+Disallow: /*.php$
